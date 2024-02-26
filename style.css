@@ -1,0 +1,296 @@
+@import "normalize.css";
+@import url('https://fonts.cdnfonts.com/css/uni-neue');
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  background: hsl(0 0% 2%);
+  color: hsl(0 0% 98%);
+  overflow-x: hidden;
+}
+
+.support {
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: grid;
+	place-items: center;
+	background: rgba(0, 0, 0);
+}  
+
+@supports (animation-timeline: view()) {
+  .support {
+    display: none;
+  }
+}
+
+video {
+	position: fixed;
+	inset: 0;
+	-o-object-fit: cover;
+	   object-fit: cover;
+	width: 100%;
+	height: 100vh;
+	z-index: -1;
+}
+
+@-webkit-keyframes fade-in {
+	to {
+		opacity: 0.2;
+	}
+}
+
+@keyframes fade-in {
+	to {
+		opacity: 0.2;
+	}
+}
+
+@-webkit-keyframes fade-out {
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes fade-out {
+	to {
+		opacity: 0;
+	}
+}
+
+section {
+	position: relative;
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	view-timeline: --section;
+	
+}
+
+section:nth-of-type(1) {
+	height: 50vh;
+}
+
+section:nth-of-type(2) {
+	height: 150vh;
+}
+
+section:nth-of-type(3) {
+	height: 130vh;
+}
+
+section:nth-of-type(4) {
+	height: 160vh;
+}
+
+
+h1 {
+	display: grid;
+}
+
+:is(h1, h2) {
+	font-size: clamp(2.5rem, 7vw + 1rem, 10rem);
+	text-align: center;
+	line-height: 1;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin: 0;
+	translate: -50% -50%;
+	width: 100%;
+}
+
+p span {
+  opacity: 0.15;
+	-webkit-animation: highlight both ease-in-out;
+	        animation: highlight both ease-in-out;
+	animation-timeline: view();
+}
+
+@-webkit-keyframes highlight {
+	50% {
+    opacity: 1;
+	}
+}
+
+@keyframes highlight {
+	50% {
+    opacity: 1;
+	}
+}
+
+p span:nth-of-type(1) {
+	animation-range: cover 0% cover 30%;
+}
+p span:nth-of-type(2) {
+	animation-range: cover 10% cover 40%;
+}
+p span:nth-of-type(3) {
+	animation-range: cover 20% cover 50%;
+}
+p span:nth-of-type(4) {
+	animation-range: cover 30% cover 60%;
+}
+p span:nth-of-type(5) {
+	animation-range: cover 40% cover 70%;
+}
+p span:nth-of-type(6) {
+	animation-range: cover 50% cover 80%;
+}
+p span:nth-of-type(7) {
+	animation-range: cover 60% cover 90%;
+}
+p span:nth-of-type(8) {
+	animation-range: cover 70% cover 100%;
+}
+p span:nth-of-type(9) {
+	animation-range: cover 80% cover 110%;
+}
+
+.secondary-text {
+	opacity: 0.15;
+	-webkit-animation: highlight both ease-in-out;
+	        animation: highlight both ease-in-out;
+	animation-timeline: view();
+	animation-range: cover 10% cover 100%;
+  }
+
+h1 span:first-of-type {
+	display: inline-block;
+	-webkit-animation: scale-up both cubic-bezier(.1,.7,.9,1.3), fade-away both linear;
+	        animation: scale-up both cubic-bezier(.1,.7,.9,1.3), fade-away both linear;
+	animation-timeline: --section;
+	animation-range: exit 0% exit 100%, exit 50% exit 90%;	
+}
+
+@-webkit-keyframes scale-up {
+	to {
+		scale: 1.5;
+	}
+}
+
+@keyframes scale-up {
+	to {
+		scale: 1.5;
+	}
+}
+
+h2 {
+	-webkit-animation: grow both ease-in, fade-away both linear;
+	        animation: grow both ease-in, fade-away both linear;
+	animation-timeline: --section;
+	animation-range: exit-crossing -10% exit-crossing 10%, exit 0% exit 50%;
+}
+
+h1 span:first-of-type {
+	color: white;
+	font-size: 0.35em;
+	font-weight: 700;
+	font-family: 'Uni Neue', sans-serif;
+	font-style: italic;
+	font-size: 120px;
+}
+
+@-webkit-keyframes grow {
+	0% {
+		scale: 0.5;
+		opacity: 0;
+	}
+}
+
+@keyframes grow {
+	0% {
+		scale: 0.5;
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes fade-away {
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes fade-away {
+	100% {
+		opacity: 0;
+	}
+}
+
+h2 {
+	font-size: clamp(2rem, 5vw + 1rem, 6rem);
+	text-align: center;
+}
+
+p {
+  font-size: clamp(1.625rem, 3vw + 1rem, 8rem);
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.section__content {
+	width: 800px;
+	max-width: 100vw;
+	padding: 0 1rem;
+}
+
+
+.we-got-it {
+	display: grid;
+	place-items: start;
+	text-align: left;
+	font-size: clamp(1.625rem, 3vw + 1rem, 6rem);
+}
+
+.we-got-it span:first-of-type {
+	color: hsl(140 100% 50%);
+	font-size: 0.5em;
+}
+
+
+footer {
+	text-decoration: none !important;
+	display: grid;
+	place-items: start;
+	text-align: left;
+	font-size: clamp(1.625rem, 3vw + 1rem, 6rem);
+}
+
+.interested {
+	text-decoration: none !important;
+	color: hsl(140 100% 50%);
+	font-size: 0.5em;
+}
+
+.click-here {
+	color: white;
+	opacity: 0.15;
+	-webkit-animation: highlight both ease-in-out;
+	animation: highlight both ease-in-out;
+	animation-timeline: view();
+	animation-range: cover 0% cover 100%;
+  }
+
+  #load-basic-button {
+	border: 0px;
+	height: 10%;
+	width: 12%;
+	background-color: white;
+	outline-color: white !important;
+	outline-width: 10px !important;
+	color: black;
+	font-family: Arial, Helvetica, sans-serif
+}

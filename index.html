@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>blackgate</title>
+  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div class="support">
+  <h3>Unsupported browser. Update your browser!</h1>
+  <button id="load-basic-button">Load basic version</button>
+</div>
+
+<main>
+  <section>
+    <div class="section__content">
+      <h1>
+        <span>blackgate</span>
+      </h1>
+    </div>
+  </section>
+  <section>
+    <div class="section__content">
+      <h2 id="userCount">Plugins used<br>by over <span id="userCounter">0</span> users</h2>
+    </div>
+  </section>
+  <section>
+    <video src="back.mp4" autoplay playsinline muted loop></video>
+    <div class="section__content">
+      <p data-splitting>
+        <span>&nbsp;Spigot</span><br>
+        <span>&nbsp;Bungee</span><br>
+        <span>&nbsp;NMS</span><br>
+        <span>&nbsp;MySQL</span><br>
+        <span>&nbsp;PostgreSQL</span><br>
+        <span>&nbsp;Redis</span><br>
+        <span>&nbsp;Machine&nbsp;Learning</span><br>
+        <span>&nbsp;Async&nbsp;Programming</span><br>
+        <span>&nbsp;Reflection</span><br>
+        <span></span><br>
+      </p>
+    </div>
+  </section>
+  <section>
+    <div class="section__content">
+      <a class="we-got-it">
+        <span>Large scale projects</span>
+        <span class="secondary-text">Developed for servers with over 800,000 unique players</span>
+      </a>
+    </div>
+    <div class="section__content">
+      <footer>
+        <span class="interested">Interested?</span>
+        <a href="https://discord.com/users/503906085015388160">
+          <span class="click-here">Click here</span>
+        </a>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script>
+  let countUpStarted = false;
+
+  function countUp(target, element) {
+    let currentCount = 0;
+    const increment = Math.ceil(target / 150);
+    const interval = setInterval(function() {
+      if (currentCount + increment >= target) {
+        clearInterval(interval);
+        currentCount = target;
+      } else {
+        currentCount += increment;
+      }
+      element.textContent = currentCount.toLocaleString();
+    }, 20);
+  }
+
+  document.getElementById("load-basic-button").addEventListener("click", function() {
+    window.location.href = "basic-version/index.html";
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const targetCount = 175000;
+    const userCounter = document.getElementById("userCounter");
+
+    const h2Element = document.getElementById("userCount");
+    h2Element.addEventListener("animationstart", function(event) {
+      if (event.animationName === "grow" && !countUpStarted) {
+        countUp(targetCount, userCounter);
+        countUpStarted = true;
+      }
+    });
+  });
+</script>
+  
+</body>
+</html>
